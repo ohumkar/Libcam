@@ -1,9 +1,6 @@
 # Libcam
 Book cover text recognition
 
-# Libcam
-Book cover text recognition
-
 
 Project structure : </br>
 _Detection.py_ → consists of detection text regions using the pretrained EAST text detection</br>

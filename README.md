@@ -2,7 +2,8 @@
 Book cover text recognition
 
 ```
-Main Project Structure : </br>
+Main Project Structure : 
+
 images
 Libcam
  !--utils

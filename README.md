@@ -1,12 +1,23 @@
 # Libcam
 Book cover text recognition
 
+```
+Main Project Structure : </br>
+images
+Libcam
+ !--utils
+ !   !--detection.py
+ !   !--ner.py
+ !   !--processing.py
+ !
+ !--main.py
+ !--frozen_east_text_detection.pb
+```
+_detection.py_ → extract text regions using pretrained east model </br>
+_preprocessing.py_ → image processing on detected text regions </br>
+_main.py_ → run tesseract on detected text regions </br>
+_ner.py_ → nlp functions to perform named entity recognition </br>
 
-Project structure : </br>
-_Detection.py_ → consists of detection text regions using the pretrained EAST text detection</br>
-_preprocessing.py_ → preprocessing for detected text regions</br>
-_ner.py_ → nlp programs to recognize detected text</br>
-_main.py_ → running the program </br>
 ### How to run</br>
 Main.py --east --image --detector --width --height --padding
 </br>

@@ -13,9 +13,9 @@ Libcam
  !--main.py
  !--frozen_east_text_detection.pb
 ```
-_detection.py_ → extract text regions using pretrained east model </br>
+_detection.py_ → extract text regions using pretrained east model and run tesseract on detected text regions</br>
 _preprocessing.py_ → image processing on detected text regions </br>
-_main.py_ → run tesseract on detected text regions </br>
+_main.py_ →  run program by parsing arguments</br>
 _ner.py_ → nlp functions to perform named entity recognition </br>
 
 ### How to run</br>

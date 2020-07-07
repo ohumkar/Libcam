@@ -4,7 +4,7 @@ import spacy
 
 
 
-print("Imported successfully!")
+print("NER successfully!")
 
 text = "Advanced engineering mathematics in Google located in USA is version abriged edition by Omkar Bhalerao"
 

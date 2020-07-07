@@ -4,7 +4,7 @@
 
 # import the necessary packages
 from imutils.object_detection import non_max_suppression
-from utils.processing import image_smoothening, remove_noise_and_smooth, plot_image
+from utils.processing import image_smoothening, remove_noise_and_smooth, plot_image, plot_new
 import matplotlib.pyplot as plt
 import numpy as np
 import pytesseract
@@ -97,6 +97,15 @@ def recognize_text(image, args_width, args_height, args_padding, args_min_confid
     print("[INFO] loading EAST text detector...")
     net = cv2.dnn.readNet(args_east)
 
+    image = plot_new(image)
+    # print('Shape after transformation:', image.shape)
+    if len(image.shape) != 3 :
+        image = np.reshape(image, (image.shape[0], image.shape[1], 1))
+        image = cv2.cvtColor(image,cv2.COLOR_GRAY2RGB)
+        # print(image.shape)
+        cv2.imshow('image',image)
+        cv2.waitKey(1000)
+
     # construct a blob from the image and then perform a forward pass of
     # the model to obtain the two output layer sets
     blob = cv2.dnn.blobFromImage(image, 1.0, (W, H),
@@ -151,7 +160,7 @@ def recognize_text(image, args_width, args_height, args_padding, args_min_confid
 
         # extract the actual padded ROI
         roi = orig[startY:endY, startX:endX]
-        roi = remove_noise_and_smooth(roi)
+        # roi = remove_noise_and_smooth(roi) #(gave bad results)
         display(roi)
 
         # in order to apply Tesseract v4 to OCR text we must supply
@@ -159,7 +168,7 @@ def recognize_text(image, args_width, args_height, args_padding, args_min_confid
         # wish to use the LSTM neural net model for OCR, and finally
         # (3) an OEM value, in this case, 7 which implies that we are
         # treating the ROI as a single line of text
-        config = ("-l eng --oem 1 --psm 7")
+        config = ("-l eng --oem 1 --psm 6")
         text = pytesseract.image_to_string(roi, config=config)
         #ocr_text.append(text)
         #ocr_text.append(text)
@@ -204,3 +213,8 @@ def only_tesseract(image) :
     image = remove_noise_and_smooth(image)
     text = pytesseract.image_to_string(image, config=config)
     return text
+
+
+if __name__ == "__main__" :
+    image = cv2.imread("images/8.jpg")
+    text = recognize_text(image,  320, 320, 0.05, 0.5, "frozen_east_text_detection.pb")

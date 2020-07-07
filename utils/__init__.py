@@ -1,5 +1,7 @@
 import utils.detection
 import utils.ner
+import utils.cam
 
-print('Imported Detection Module!')
-print('Imported NER Module!')
+print('Importing Detection Module!')
+print('Importing NER Module!')
+print('Importing CAM!')

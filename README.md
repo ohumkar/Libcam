@@ -63,7 +63,7 @@ cd into the Libcam repo & run the program</br>
 </div>
 </br>
 
-- An images is resized and a forward pass is made through the EAST detector which outputs bouding boxes along with confidence scores. Important boxes are retained by   thresholding on the basis of confidence scores </br>
+- Captured image is resized and a forward pass is made through the EAST detector which outputs bouding boxes along with confidence scores. Important boxes are retained by   thresholding on the basis of confidence scores </br>
 - Image processing is done on each of the detected text regions before passing it to the tesseract-ocr to recognize text</br>
 - Named Entity REcognition is performed on the ocr output using spacy and PERSON entities are extracted as Author from the text, while remaining is marked as Title
 </br>
@@ -76,7 +76,10 @@ Even though used output was not of desired quality. The output was mainly influe
 - Performance of the EAST → fails to capture words → boxes include some part of other words → degrading the performance of the latter ocr task</br>
 - Output of the tesseract →most of the times the ocr outputs garbage text strings or correct strings along with random characters. Such kind of output further makes the task of NER difficult finally resulting in a poor output of the program
 </br>
-### Improvements :</br>
-- Image processing</br>
-- OCR cleaing</br>
 
+### Improvements :</br>
+- A better Image processing system for the EAST detector. Since the current model though robust is finding text regions, it is not precise in drawing the boxes over each word.
+- Cleaning of garbage ocr output. Most of the times the ocr output consits of random special characters / numbers / repeated characters. 
+- Better NER. Current method works quite well but has some flaws for eg. If the complete ocr-text is capitalized, it fails to classify names as it generally assumes names begin with a captial letter (Eg. Probiility of 'Alex' being classified as a name is higher than 'ALEX' or 'alex' </br>
+
+Note that with each improvement in the earlier task, output quality of latter task will be greatly improved

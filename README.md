@@ -35,7 +35,7 @@ Install required libraries</br>
 Download spacy small english model</br>
 ```python -m spacy download en_core_web_sm```
 </br>
-
+</br>
 
 ### Usage
 cd into the Libcam repo & run the program</br>

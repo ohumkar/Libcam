@@ -1,9 +1,9 @@
 # Libcam
 Book cover text recognition
 
-```
-Main Project Structure : 
 
+### Project Structure</br>
+```
 images
 Libcam
  !--utils
@@ -19,12 +19,44 @@ _preprocessing.py_ → image processing on detected text regions </br>
 _main.py_ →  run program by parsing arguments</br>
 _ner.py_ → nlp functions to perform named entity recognition </br>
 
-### How to run</br>
-Main.py --east --image --detector --width --height --padding
+### Installation </br>
+Create virtual environment : </br>
+```conda create -n envname python=3.7   ```</br>
+Activate virtual environment: </br>
+```activate envname```</br>
+Navigate to location you want to clone repository:</br>
+```cd desired/location/```</br>
+Clone this repository:</br>
+```git clone https://github.com/ohumkar/Libcam.git```</br>
+```cd Libcam```</br>
+Install required libraries</br>
+```pip install -r requirements.txt ```</br>
+Download spacy small english model</br>
+```python -m spacy download en_core_web_sm```
+
+### Usage
+cd into the Libcam repo & run the program</br>
+1. To run with cam and east detector:</br>
+```python main.py --east frozen_east_text_detection.pb --image cam --detector east --padding 0.1``` 
+2. To run on pretrained image and east detector:</br>
+```python main.py --east frozen_east_text_detection.pb --image path/to/image --detector east --padding 0.1``` 
 </br>
-Why developed
-Approach</br>
-Basic pipeline :</br>
+
+#### Arguements : </br>
+- --east : location of pretrained east model 
+- --image : 
+  - cam --> for accesing webcam ('Space' to Capture / 'Esc' to exit)
+  - locally saved image location
+- --detector :
+  - east : Use EAST detector
+  - tess : Use Original Pytesseract
+- --padding : padding to give bouding boxes, (0.05 or 0.1 works best)
+- --width : (default 320)Width of resized image which must be multiples of 32 
+- --height : (default 320)Height of resized image which must be multiples of 32 
+- --min-confidence : (default 0.5)Minimum confidence for region to be detected as text 
+</br>
+
+### Basic pipeline :</br>
 <div align = "center">
 <img align = "center" src = "Desktop - 3.jpg" >
 </div>

@@ -52,9 +52,9 @@ cd into the Libcam repo & run the program</br>
   - east : Use EAST detector
   - tess : Use Original Pytesseract
 - --padding : padding to give bouding boxes, (0.05 or 0.1 works best)
-- --width : (default 320)Width of resized image which must be multiples of 32 
-- --height : (default 320)Height of resized image which must be multiples of 32 
-- --min-confidence : (default 0.5)Minimum confidence for region to be detected as text 
+- --width : (default 320) Width of resized image which must be multiples of 32 
+- --height : (default 320) Height of resized image which must be multiples of 32 
+- --min-confidence : (default 0.5) Minimum confidence for region to be detected as text 
 </br>
 
 ### Pipeline :</br>

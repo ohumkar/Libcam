@@ -1,6 +1,6 @@
 # Libcam
 Book cover text recognition
-
+</br>
 
 ### Project Structure</br>
 ```
@@ -19,6 +19,7 @@ _detection.py_ → extract text regions using pretrained east model and run tess
 _preprocessing.py_ → image processing on detected text regions </br>
 _main.py_ →  run program by parsing arguments</br>
 _ner.py_ → nlp functions to perform named entity recognition </br>
+</br>
 
 ### Installation </br>
 Create virtual environment : </br>

@@ -33,7 +33,8 @@ Clone this repository:</br>
 Install required libraries</br>
 ```pip install -r requirements.txt ```</br>
 Download spacy small english model</br>
-```python -m spacy download en_core_web_sm```
+```python -m spacy download en_core_web_sm```</br>
+
 
 ### Usage
 cd into the Libcam repo & run the program</br>

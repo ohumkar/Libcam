@@ -69,12 +69,18 @@ cd into the Libcam repo & run the program</br>
 </br>
 
 ### Challenges faced</br>
-As opposed to the simple ocr task in which the text is usually over a plain background this task is a bit different as it needs to needs to detect text in natural scene images which contains much more noise in the background. Hence a robust text detector was to used.
+Recognizing scene text is a challenging problem, even more so than the recognition of scanned documents. As opposed to the simple ocr task in which the text is usually over a plain background this task is a bit different as it needs to needs to detect text in natural scene images which contain much more noise in the background. Hence a robust text detector was to be used. </br>
 
-OCR is never 100 % accurate and given the task of performing ocr on natural scene images the output is even of a lower quality. To help the tesseract to detect text, detection using another robust algorithm needed to be done. TExt regions detected by the east were then sent to the tesseract for recognition
-Even though used output was not of desired quality. The output was mainly influenced by the following:</br>
-- Performance of the EAST → fails to capture words → boxes include some part of other words → degrading the performance of the latter ocr task</br>
-- Output of the tesseract →most of the times the ocr outputs garbage text strings or correct strings along with random characters. Such kind of output further makes the task of NER difficult finally resulting in a poor output of the program
+OCR is never 100 % accurate and can prove to be challenging even for the state-of-the-art OCR methods. Given the task of performing ocr on natural scene images the output is of even lower quality. 
+A few factors which cause natural scene detection to be tough are : </br>
+- Image/sensor noise
+- Viewing angles
+- Lighting conditions
+- Resolution </br>
+
+To help the tesseract to detect text in images, detection using another robust algorithm was needed to be done i.e EAST in this case. Text regions detected by the EAST were then sent to the tesseract for recognition. The final output was mainly influenced by the following:</br>
+- Performance of the EAST → sometimes fails to capture words → bounding boxes include some part of other words → degrading the performance of the latter ocr task</br>
+- Output of the tesseract → most of the times the ocr outputs garbage text strings or correct strings along with random characters. Such kind of output further makes the task of NER difficult finally resulting in a poor output of the program
 </br>
 
 ### Improvements :</br>
